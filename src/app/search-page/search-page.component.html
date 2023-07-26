@@ -1,10 +1,12 @@
 <main>
   <div>
     <img src="../assets/logo.png" />
-    <input type="text" />
+    <input type="text" placeholder="buscar produtos" #filter />
     <div>
       <a routerLink="cart">Carrinho</a>
-      <button type="button">Pesquisar</button>
+      <button type="button" (click)="filterResults(filter.value)">
+        Pesquisar
+      </button>
     </div>
   </div>
 </main>
