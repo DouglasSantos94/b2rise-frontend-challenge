@@ -1,2 +1,8 @@
 <app-top-bar></app-top-bar>
-<p>store works!</p>
+<div>
+  <div *ngFor="let product of productList">
+    <p>{{ product.description }}</p>
+    <p>{{ product.longDescription }}</p>
+    <p>{{ product.price }}</p>
+  </div>
+</div>
