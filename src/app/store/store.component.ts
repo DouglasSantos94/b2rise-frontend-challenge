@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopBarComponent } from '../top-bar/top-bar.component';
+import { ProductService } from '../product.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-store',
@@ -9,4 +11,13 @@ import { TopBarComponent } from '../top-bar/top-bar.component';
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css'],
 })
-export class StoreComponent {}
+export class StoreComponent {
+  productService: ProductService = inject(ProductService);
+  productList: Product[] = [];
+
+  constructor() {
+    this.productService.getAllProducts().then((productList: Product[]) => {
+      this.productList = productList;
+    });
+  }
+}
