@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-search-page',
+  selector: 'app-store',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './search-page.component.html',
-  styleUrls: ['./search-page.component.css']
+  templateUrl: './store.component.html',
+  styleUrls: ['./store.component.css']
 })
-export class SearchPageComponent {
+export class StoreComponent {
 
 }
