@@ -13,11 +13,7 @@ import { Product } from '../product';
 })
 export class StoreComponent {
   productService: ProductService = inject(ProductService);
-  productList: Product[] = [];
+  productList: Product[] = this.productService.filteredProducts;
 
-  constructor() {
-    this.productService.getAllProducts().then((productList: Product[]) => {
-      this.productList = productList;
-    });
-  }
+  constructor() {}
 }
