@@ -5,6 +5,8 @@ import { Product } from './product';
   providedIn: 'root',
 })
 export class ProductService {
+  filteredProducts: Product[] = [];
+
   constructor() {}
 
   url = 'http://localhost:3000/products';
@@ -12,5 +14,9 @@ export class ProductService {
   async getAllProducts(): Promise<Product[]> {
     const data = await fetch(this.url);
     return (await data.json()) ?? [];
+  }
+
+  filterProducts(products: Product[]) {
+    this.filteredProducts = products;
   }
 }
