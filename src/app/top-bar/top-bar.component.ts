@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-bar',
@@ -12,6 +13,7 @@ import { Product } from '../product';
 })
 export class TopBarComponent {
   productService: ProductService = inject(ProductService);
+  constructor(private router: Router) {}
 
   filterResults(text: string) {
     if (!text) {
@@ -23,5 +25,7 @@ export class TopBarComponent {
         product.description.toLowerCase().includes(text.toLowerCase())
       )
     );
+
+    this.router.navigate(['/store']);
   }
 }
