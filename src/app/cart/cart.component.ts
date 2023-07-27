@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopBarComponent } from '../top-bar/top-bar.component';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,4 +10,7 @@ import { TopBarComponent } from '../top-bar/top-bar.component';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent {}
+export class CartComponent {
+  products = this.cartService.getProducts();
+  constructor(private cartService: CartService) {}
+}
