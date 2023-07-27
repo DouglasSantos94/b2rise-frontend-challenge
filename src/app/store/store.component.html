@@ -1,6 +1,11 @@
 <app-top-bar></app-top-bar>
 <div>
+  <div>
+    <button type="button">Selecionar todos</button>
+    <button type="button">Adicionar selecionados</button>
+  </div>
   <div *ngFor="let product of this.productService.filteredProducts">
+    <input type="checkbox" #selected />
     <p>{{ product.description }}</p>
     <p>{{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}</p>
     <p>{{ product.longDescription }}</p>
