@@ -15,9 +15,25 @@ import { CartService } from '../cart.service';
 export class StoreComponent {
   productService: ProductService = inject(ProductService);
   filteredProductList: Product[] = this.productService.filteredProducts;
+  selectedProducts: Product[] = [];
+
   constructor(private cartService: CartService) {}
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);
+  }
+
+  selectItem(product: Product) {
+    let prod = this.selectedProducts.find((p: Product) => p.id === product.id);
+    console.log(prod);
+
+    if (prod) {
+      this.selectedProducts = this.selectedProducts.filter(
+        (p: Product) => p !== product
+      );
+    } else {
+      this.selectedProducts.push(product);
+    }
+    console.log(this.selectedProducts);
   }
 }

@@ -5,7 +5,7 @@
     <button type="button">Adicionar selecionados</button>
   </div>
   <div *ngFor="let product of this.productService.filteredProducts">
-    <input type="checkbox" #selected />
+    <input type="checkbox" (click)="selectItem(product)" />
     <p>{{ product.description }}</p>
     <p>{{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}</p>
     <p>{{ product.longDescription }}</p>
