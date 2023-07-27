@@ -13,21 +13,20 @@ import { Product } from '../product';
 })
 export class SearchPageComponent {
   productService: ProductService = inject(ProductService);
-  productList: Product[] = [];
 
   constructor(private router: Router) {
     this.productService.getAllProducts().then((productList: Product[]) => {
-      this.productList = productList;
+      this.productService.allProducts = productList;
     });
   }
 
   filterResults(text: string) {
     if (!text) {
-      this.productService.filteredProducts = this.productList;
+      this.productService.filteredProducts = this.productService.allProducts;
     }
 
     this.productService.filterProducts(
-      this.productList.filter((product: Product) =>
+      this.productService.allProducts.filter((product: Product) =>
         product.description.toLowerCase().includes(text.toLowerCase())
       )
     );
