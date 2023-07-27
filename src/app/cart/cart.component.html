@@ -1,5 +1,5 @@
 <app-top-bar></app-top-bar>
-<main>
+<section *ngIf="products.length > 0">
   <h2>Carrinho</h2>
   <div *ngFor="let product of products">
     <p>{{ product.description }}</p>
@@ -7,4 +7,8 @@
   </div>
   >
   <button type="button">Finalizar compra</button>
-</main>
+</section>
+<section *ngIf="products.length === 0">
+  <h2>O carrinho está vazio!</h2>
+  <img src="../../assets/empty-cart.png" />
+</section>
