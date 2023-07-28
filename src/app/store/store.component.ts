@@ -19,13 +19,12 @@ export class StoreComponent {
 
   constructor(private cartService: CartService) {}
 
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
+  addToCart(products: Product[]) {
+    this.cartService.addToCart(products);
   }
 
   selectItem(product: Product) {
     let prod = this.selectedProducts.find((p: Product) => p.id === product.id);
-    console.log(prod);
 
     if (prod) {
       this.selectedProducts = this.selectedProducts.filter(
@@ -34,6 +33,11 @@ export class StoreComponent {
     } else {
       this.selectedProducts.push(product);
     }
-    console.log(this.selectedProducts);
+  }
+
+  isSelected(product: Product) {
+    return (
+      this.selectedProducts.find((p: Product) => p === product) !== undefined
+    );
   }
 }
