@@ -9,8 +9,8 @@ export class CartService {
 
   constructor() {}
 
-  addToCart(product: Product) {
-    this.products.push(product);
+  addToCart(products: Product[]) {
+    this.products.push(...products);
   }
 
   getProducts() {
