@@ -7,7 +7,7 @@ module.exports = {
         836: "52.25rem",
       },
       backgroundColor: {
-        buttonBlue: "#170063",
+        buttonBlue: "#20124E",
         buttonGreen: "#00DDA5",
       },
       borderRadius: {
@@ -15,6 +15,10 @@ module.exports = {
       },
       boxShadow: {
         1: "0px 2px 3px rgba(0, 0, 0, 0.5)",
+      },
+      borderColor: {
+        blue: "#170063",
+        green: "#00AD81",
       },
     },
   },
