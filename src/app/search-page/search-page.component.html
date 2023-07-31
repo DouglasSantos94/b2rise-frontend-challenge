@@ -1,6 +1,11 @@
 <div class="sp-container">
   <img src="../assets/logo.png" />
-  <input type="text" placeholder="buscar produtos" #filter />
+  <input
+    class="w-836 border rounded-lg border-gray-300 h-45 p-2"
+    type="text"
+    placeholder="buscar produtos"
+    #filter
+  />
   <div>
     <a routerLink="cart">Carrinho</a>
     <button type="button" (click)="filterResults(filter.value)">
