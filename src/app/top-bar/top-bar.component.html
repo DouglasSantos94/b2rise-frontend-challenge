@@ -1,4 +1,6 @@
-<header class="w-full h-24 flex items-center box-border bg-blue">
+<header
+  class="w-full h-24 pl-7 pr-7 flex items-center justify-between box-border bg-blue"
+>
   <a routerLink="/"><img src="../../assets/header.png" /></a>
   <input type="text" #filter />
   <button (click)="filterResults(filter.value)">Pesquisar</button>
