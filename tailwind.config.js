@@ -8,6 +8,7 @@ module.exports = {
       },
       backgroundColor: {
         buttonBlue: "#170063",
+        buttonGreen: "#00DDA5",
       },
       borderRadius: {
         10: "0.625rem",
