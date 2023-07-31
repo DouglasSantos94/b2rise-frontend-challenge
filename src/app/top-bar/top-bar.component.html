@@ -2,12 +2,19 @@
   class="w-full h-24 pl-7 pr-7 flex items-center justify-between box-border bg-blue"
 >
   <a routerLink="/"><img src="../../assets/header.png" /></a>
-  <input
-    class="w-[768px] p-2 border rounded-10 text-2xl"
-    type="search"
-    placeholder="Pesquisar por produtos..."
-    #filter
-  />
-  <button (click)="filterResults(filter.value)">Pesquisar</button>
+  <div class="h-full flex items-center">
+    <input
+      class="w-[768px] p-2 border rounded-10 text-2xl outline-none focus:outline-none"
+      type="search"
+      placeholder="Pesquisar por produtos..."
+      #filter
+    />
+    <button
+      class="w-10 p-0 m-0 rounded-10 -ml-4"
+      (click)="filterResults(filter.value)"
+    >
+      <img class="w-10 p-0 m-0 rounded-10" src="../../assets/search.png" />
+    </button>
+  </div>
   <a routerLink="/cart">Carrinho</a>
 </header>
