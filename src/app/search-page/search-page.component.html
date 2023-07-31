@@ -8,11 +8,15 @@
   />
   <div class="w-836 flex justify-evenly">
     <a
-      class="w-64 p-2 bg-buttonBlue box-border border rounded-lg text-xl text-center text-white"
+      class="w-64 p-2 bg-buttonBlue box-border border rounded-lg shadow-1 text-xl text-center text-white"
       routerLink="cart"
       >Carrinho</a
     >
-    <button type="button" (click)="filterResults(filter.value)">
+    <button
+      class="w-64 p-2 bg-buttonGreen box-border border rounded-lg shadow-1 text-xl text-center text-white"
+      type="button"
+      (click)="filterResults(filter.value)"
+    >
       Pesquisar
     </button>
   </div>
