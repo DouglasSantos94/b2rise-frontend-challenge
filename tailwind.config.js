@@ -6,6 +6,12 @@ module.exports = {
       width: {
         836: "52.25rem",
       },
+      backgroundColor: {
+        buttonBlue: "#170063",
+      },
+      borderRadius: {
+        10: "0.625rem",
+      },
     },
   },
   plugins: [],
