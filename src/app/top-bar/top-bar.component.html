@@ -4,13 +4,13 @@
   <a routerLink="/"><img src="../../assets/header.png" /></a>
   <div class="h-full flex items-center">
     <input
-      class="w-[768px] p-2 border rounded-10 text-2xl outline-none focus:outline-none"
+      class="w-[768px] p-2 border rounded-10 text-2xl outline-none"
       type="search"
       placeholder="Pesquisar por produtos..."
       #filter
     />
     <button
-      class="w-10 p-0 m-0 rounded-10 -ml-4"
+      class="w-8 p-0 m-0 rounded-10 -ml-12"
       (click)="filterResults(filter.value)"
     >
       <img class="w-10 p-0 m-0 rounded-10" src="../../assets/search.png" />
