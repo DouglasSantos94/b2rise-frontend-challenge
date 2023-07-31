@@ -6,6 +6,9 @@ module.exports = {
       width: {
         836: "52.25rem",
       },
+      height: {
+        24: "5.875rem",
+      },
       backgroundColor: {
         blue: "#20124E",
         green: "#00DDA5",
