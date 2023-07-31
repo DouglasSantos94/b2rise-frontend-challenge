@@ -1,12 +1,10 @@
-<main>
+<div class="sp-container">
+  <img src="../assets/logo.png" />
+  <input type="text" placeholder="buscar produtos" #filter />
   <div>
-    <img src="../assets/logo.png" />
-    <input type="text" placeholder="buscar produtos" #filter />
-    <div>
-      <a routerLink="cart">Carrinho</a>
-      <button type="button" (click)="filterResults(filter.value)">
-        Pesquisar
-      </button>
-    </div>
+    <a routerLink="cart">Carrinho</a>
+    <button type="button" (click)="filterResults(filter.value)">
+      Pesquisar
+    </button>
   </div>
-</main>
+</div>
