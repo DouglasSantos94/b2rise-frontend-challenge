@@ -22,6 +22,10 @@ module.exports = {
       borderColor: {
         blue: "#170063",
         green: "#00AD81",
+        gray: "#E4E4E4",
+      },
+      borderWidth: {
+        1: "1px",
       },
     },
   },
