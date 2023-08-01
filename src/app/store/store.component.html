@@ -21,8 +21,8 @@
           ng-checked="isSelected(product)"
         />
         <div class="w-500 ml-3">
-          <h1 class="text-[34px]">{{ product.description }}</h1>
-          <h2 class="italic text-[17px]">
+          <h1 class="text-[34px] mb-2">{{ product.description }}</h1>
+          <h2 class="italic text-[17px] mb-1">
             {{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}
           </h2>
           <p class="text-[14px]">{{ product.longDescription }}</p>
