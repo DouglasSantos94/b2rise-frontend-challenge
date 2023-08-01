@@ -1,10 +1,47 @@
 <app-top-bar></app-top-bar>
-<section *ngIf="products.length > 0">
-  <h2>Carrinho</h2>
-  <div *ngFor="let product of products">
-    <p>{{ product.description }}</p>
-    <p>{{ product.price }}</p>
-  </div>
+<section class="w-full pt-5" *ngIf="products.length > 0">
+  <h2 class="text-[47px] text-left">Carrinho</h2>
+  <ul class="w-[1200px] m-auto flex flex-col">
+    <li
+      class="w-full h-52 px-5 flex justify-between items-center border-b-1 border-gray"
+      *ngFor="let product of products"
+    >
+      <div class="w-full h-full flex justify-between items-center">
+        <div class="w-[550px]">
+          <h1 class="text-[34px] mb-2">{{ product.description }}</h1>
+          <h2 class="italic text-[17px] mb-1">
+            {{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}
+          </h2>
+          <div>
+            <button type="button">Excluir</button>
+          </div>
+          <p class="text-[14px]">{{ product.longDescription }}</p>
+        </div>
+        <div class="w-[650px] flex justify-end items-center">
+          <div
+            class="flex justify-end items-center bg-[#F0F0F0] border rounded-10 text-[17px]"
+          >
+            <button
+              class="w-8 h-9 bg-transparent text-4xl text-red"
+              type="button"
+            >
+              -
+            </button>
+            <input class="w-20 bg-[#F0F0F0] p-2" type="number" />
+            <button
+              class="w-8 h-9 bg-transparent text-2xl text-green"
+              type="button"
+            >
+              +
+            </button>
+          </div>
+          <span class="ml-10 text-2xl">{{
+            product.price | currency : "BRL"
+          }}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
 
   <button type="button">Finalizar compra</button>
 </section>
