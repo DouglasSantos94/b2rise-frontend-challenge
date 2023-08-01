@@ -14,17 +14,19 @@
       class="w-full h-52 flex justify-between items-center"
       *ngFor="let product of this.productService.filteredProducts"
     >
-      <div class="w-[500px]">
+      <div class="w-[550px] flex justify-between">
         <input
           type="checkbox"
           (click)="selectItem(product)"
           ng-checked="isSelected(product)"
         />
-        <p>{{ product.description }}</p>
-        <p>
-          {{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}
-        </p>
-        <p>{{ product.longDescription }}</p>
+        <div class="w-500 ml-3">
+          <p>{{ product.description }}</p>
+          <p>
+            {{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}
+          </p>
+          <p>{{ product.longDescription }}</p>
+        </div>
       </div>
       <button
         class="w-36 p-2 bg-blue box-border border border-blue rounded-lg shadow-1 text-[19px] text-center text-white"
