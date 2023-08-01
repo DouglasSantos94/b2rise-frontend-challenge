@@ -1,21 +1,27 @@
 <app-top-bar></app-top-bar>
-<div>
-  <div>
-    <button type="button" (click)="addToCart(selectedProducts)">
+<div class="w-full">
+  <div class="w-[720px] h-28 m-auto flex items-center">
+    <button
+      class="w-64 p-2 bg-blue box-border border border-blue rounded-lg shadow-1 text-xl text-center text-white"
+      type="button"
+      (click)="addToCart(selectedProducts)"
+    >
       Adicionar selecionados
     </button>
   </div>
-  <div *ngFor="let product of this.productService.filteredProducts">
-    <input
-      type="checkbox"
-      (click)="selectItem(product)"
-      ng-checked="isSelected(product)"
-    />
-    <p>{{ product.description }}</p>
-    <p>{{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}</p>
-    <p>{{ product.longDescription }}</p>
-    <button type="button" (click)="addToCart([product])">
-      Adicionar ao carrinho
-    </button>
-  </div>
+  <section>
+    <div *ngFor="let product of this.productService.filteredProducts">
+      <input
+        type="checkbox"
+        (click)="selectItem(product)"
+        ng-checked="isSelected(product)"
+      />
+      <p>{{ product.description }}</p>
+      <p>{{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}</p>
+      <p>{{ product.longDescription }}</p>
+      <button type="button" (click)="addToCart([product])">
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </section>
 </div>
