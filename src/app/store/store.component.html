@@ -9,8 +9,11 @@
       Adicionar selecionados
     </button>
   </div>
-  <section>
-    <div *ngFor="let product of this.productService.filteredProducts">
+  <ul class="w-[1024px] m-auto flex flex-col">
+    <li
+      class="w-full"
+      *ngFor="let product of this.productService.filteredProducts"
+    >
       <input
         type="checkbox"
         (click)="selectItem(product)"
@@ -19,9 +22,13 @@
       <p>{{ product.description }}</p>
       <p>{{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}</p>
       <p>{{ product.longDescription }}</p>
-      <button type="button" (click)="addToCart([product])">
-        Adicionar ao carrinho
+      <button
+        class="w-36 p-2 bg-blue box-border border border-blue rounded-lg shadow-1 text-[19px] text-center text-white"
+        type="button"
+        (click)="addToCart([product])"
+      >
+        + Carrinho
       </button>
-    </div>
-  </section>
+    </li>
+  </ul>
 </div>
