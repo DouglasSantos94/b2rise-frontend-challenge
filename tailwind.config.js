@@ -13,16 +13,20 @@ module.exports = {
         blue: "#20124E",
         green: "#00DDA5",
       },
+      borderColor: {
+        blue: "#170063",
+        green: "#00AD81",
+        gray: "#E4E4E4",
+      },
+      textColor: {
+        green: "#00DDA5",
+        red: "#DD3434",
+      },
       borderRadius: {
         10: "0.625rem",
       },
       boxShadow: {
         1: "0px 2px 3px rgba(0, 0, 0, 0.5)",
-      },
-      borderColor: {
-        blue: "#170063",
-        green: "#00AD81",
-        gray: "#E4E4E4",
       },
       borderWidth: {
         1: "1px",
