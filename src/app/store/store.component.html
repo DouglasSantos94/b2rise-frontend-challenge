@@ -11,17 +11,21 @@
   </div>
   <ul class="w-[1024px] m-auto flex flex-col">
     <li
-      class="w-full"
+      class="w-full h-52 flex justify-between items-center"
       *ngFor="let product of this.productService.filteredProducts"
     >
-      <input
-        type="checkbox"
-        (click)="selectItem(product)"
-        ng-checked="isSelected(product)"
-      />
-      <p>{{ product.description }}</p>
-      <p>{{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}</p>
-      <p>{{ product.longDescription }}</p>
+      <div class="w-[500px]">
+        <input
+          type="checkbox"
+          (click)="selectItem(product)"
+          ng-checked="isSelected(product)"
+        />
+        <p>{{ product.description }}</p>
+        <p>
+          {{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}
+        </p>
+        <p>{{ product.longDescription }}</p>
+      </div>
       <button
         class="w-36 p-2 bg-blue box-border border border-blue rounded-lg shadow-1 text-[19px] text-center text-white"
         type="button"
