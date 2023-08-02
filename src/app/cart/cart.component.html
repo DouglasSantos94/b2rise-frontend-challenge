@@ -24,9 +24,7 @@
             <button
               class="w-8 h-9 bg-transparent text-4xl text-red"
               type="button"
-              (click)="
-                product.count = product.count > 1 ? product.count - 1 : 1
-              "
+              (click)="decrease(product)"
             >
               -
             </button>
@@ -39,7 +37,7 @@
             <button
               class="w-8 h-9 bg-transparent text-2xl text-green"
               type="button"
-              (click)="product.count = product.count + 1"
+              (click)="increase(product)"
             >
               +
             </button>
@@ -51,7 +49,7 @@
       </div>
     </li>
     <li class="h-20 flex justify-end items-center border-b-1 border-gray">
-      Preço total: {{ 100 | currency : "BRL" }}
+      Preço total: {{ totalPrice | currency : "BRL" }}
     </li>
   </ul>
 

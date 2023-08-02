@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { CartService } from '../cart.service';
+import { CartProduct } from '../product';
 
 @Component({
   selector: 'app-cart',
@@ -13,4 +14,19 @@ import { CartService } from '../cart.service';
 export class CartComponent {
   products = this.cartService.getProducts();
   constructor(private cartService: CartService) {}
+
+  totalPrice = this.products.reduce(
+    (acc, product: CartProduct) => acc + product.price * product.count,
+    0
+  );
+
+  increase(product: CartProduct) {
+    product.count += 1;
+    this.totalPrice += product.price;
+  }
+
+  decrease(product: CartProduct) {
+    product.count = product.count > 1 ? product.count - 1 : 1;
+    this.totalPrice -= product.price;
+  }
 }
