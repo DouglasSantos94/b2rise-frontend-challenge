@@ -25,7 +25,7 @@ export class ProductService {
     const parsedProducts = await this.getAllProducts().then(
       (products: Product[]) =>
         products.map((product: Product) =>
-          Object.defineProperty(product, 'count', 1)
+          Object.defineProperty(product, 'count', Number)
         )
     );
 

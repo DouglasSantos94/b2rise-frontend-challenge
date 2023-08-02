@@ -3,7 +3,7 @@
   <h2 class="text-[47px] text-left">Carrinho</h2>
   <ul class="w-[1200px] m-auto flex flex-col">
     <li
-      class="w-full h-52 px-5 flex justify-between items-center border-b-1 border-gray"
+      class="w-full h-60 px-5 flex justify-between items-center border-b-1 border-gray"
       *ngFor="let product of products"
     >
       <div class="w-full h-full flex justify-between items-center">
@@ -15,7 +15,7 @@
           <div class="w-full h-8">
             <button class="text-red ml-5" type="button">Excluir</button>
           </div>
-          <p class="text-[14px]">{{ product.longDescription }}</p>
+          <p class="text-[14px] mb-3">{{ product.longDescription }}</p>
         </div>
         <div class="w-[650px] flex justify-end items-center">
           <div
@@ -24,6 +24,9 @@
             <button
               class="w-8 h-9 bg-transparent text-4xl text-red"
               type="button"
+              (click)="
+                product.count = product.count > 1 ? product.count - 1 : 1
+              "
             >
               -
             </button>
@@ -31,20 +34,24 @@
               class="w-20 bg-[#F0F0F0] p-2 text-center"
               type="number"
               min="1"
-              [defaultValue]="1"
+              [value]="product.count"
             />
             <button
               class="w-8 h-9 bg-transparent text-2xl text-green"
               type="button"
+              (click)="product.count = product.count + 1"
             >
               +
             </button>
           </div>
           <span class="ml-10 text-2xl">{{
-            product.price | currency : "BRL"
+            product.price * product.count | currency : "BRL"
           }}</span>
         </div>
       </div>
+    </li>
+    <li class="h-20 flex justify-end items-center border-b-1 border-gray">
+      Preço total: {{ 100 | currency : "BRL" }}
     </li>
   </ul>
 
