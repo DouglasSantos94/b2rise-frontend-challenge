@@ -4,3 +4,7 @@ export interface Product {
   longDescription: string;
   price: number;
 }
+
+export type CartProduct = {
+  count: number;
+} & Product;
