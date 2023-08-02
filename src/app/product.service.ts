@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Product } from './product';
+import { CartProduct, Product } from './product';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  allProducts: Product[] = [];
-  filteredProducts: Product[] = [];
+  allProducts: CartProduct[] = [];
+  filteredProducts: CartProduct[] = [];
 
   constructor() {}
 
@@ -14,10 +14,25 @@ export class ProductService {
 
   async getAllProducts(): Promise<Product[]> {
     const data = await fetch(this.url);
-    return (await data.json()) ?? [];
+    const products: Product[] = await data
+      .json()
+      .then((products: Product[]) => products);
+
+    return products ?? [];
   }
 
-  filterProducts(products: Product[]) {
+  async parsedProducts(): Promise<CartProduct[]> {
+    const parsedProducts = await this.getAllProducts().then(
+      (products: Product[]) =>
+        products.map((product: Product) =>
+          Object.defineProperty(product, 'count', 1)
+        )
+    );
+
+    return parsedProducts as CartProduct[];
+  }
+
+  filterProducts(products: CartProduct[]) {
     this.filteredProducts = products;
   }
 }
