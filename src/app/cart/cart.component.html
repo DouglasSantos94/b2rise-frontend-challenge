@@ -1,7 +1,7 @@
 <app-top-bar></app-top-bar>
-<section class="w-full pt-5" *ngIf="products.length > 0">
-  <h2 class="text-[47px] text-left">Carrinho</h2>
-  <ul class="w-[1200px] m-auto flex flex-col">
+<section class="w-full m-auto pt-5" *ngIf="products.length > 0">
+  <h2 class="w-[1500px] m-auto text-[47px] text-left">Carrinho</h2>
+  <ul class="w-[1400px] m-auto flex flex-col">
     <li
       class="w-full h-60 px-5 flex justify-between items-center border-b-1 border-gray"
       *ngFor="let product of products"
@@ -48,12 +48,20 @@
         </div>
       </div>
     </li>
-    <li class="h-20 flex justify-end items-center border-b-1 border-gray">
+    <li
+      class="h-20 text-2xl flex justify-end items-center border-b-1 border-gray"
+    >
       Preço total: {{ totalPrice | currency : "BRL" }}
     </li>
   </ul>
-
-  <button type="button">Finalizar compra</button>
+  <div class="w-[1400px] h-28 m-auto flex justify-end items-center">
+    <button
+      class="w-64 p-2 bg-green box-border border border-green rounded-lg shadow-1 text-xl text-center text-white"
+      type="button"
+    >
+      Finalizar compra
+    </button>
+  </div>
 </section>
 <section *ngIf="products.length === 0">
   <h2>O carrinho está vazio!</h2>
