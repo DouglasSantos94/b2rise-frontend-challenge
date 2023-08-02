@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { ProductService } from '../product.service';
-import { Product } from '../product';
+import { CartProduct, Product } from '../product';
 
 @Component({
   selector: 'app-search-page',
@@ -15,7 +15,7 @@ export class SearchPageComponent {
   productService: ProductService = inject(ProductService);
 
   constructor(private router: Router) {
-    this.productService.getAllProducts().then((productList: Product[]) => {
+    this.productService.parsedProducts().then((productList: CartProduct[]) => {
       this.productService.allProducts = productList;
     });
   }
@@ -26,7 +26,7 @@ export class SearchPageComponent {
     }
 
     this.productService.filterProducts(
-      this.productService.allProducts.filter((product: Product) =>
+      this.productService.allProducts.filter((product: CartProduct) =>
         product.description.toLowerCase().includes(text.toLowerCase())
       )
     );

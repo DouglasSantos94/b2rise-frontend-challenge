@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { ProductService } from '../product.service';
-import { Product } from '../product';
+import { CartProduct, Product } from '../product';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -15,29 +15,32 @@ import { CartService } from '../cart.service';
 export class StoreComponent {
   productService: ProductService = inject(ProductService);
   filteredProductList: Product[] = this.productService.filteredProducts;
-  selectedProducts: Product[] = [];
+  selectedProducts: CartProduct[] = [];
 
   constructor(private cartService: CartService) {}
 
-  addToCart(products: Product[]) {
+  addToCart(products: CartProduct[]) {
     this.cartService.addToCart(products);
   }
 
-  selectItem(product: Product) {
-    let prod = this.selectedProducts.find((p: Product) => p.id === product.id);
+  selectItem(product: CartProduct) {
+    let prod = this.selectedProducts.find(
+      (p: CartProduct) => p.id === product.id
+    );
 
     if (prod) {
       this.selectedProducts = this.selectedProducts.filter(
-        (p: Product) => p !== product
+        (p: CartProduct) => p !== product
       );
     } else {
       this.selectedProducts.push(product);
     }
   }
 
-  isSelected(product: Product) {
+  isSelected(product: CartProduct) {
     return (
-      this.selectedProducts.find((p: Product) => p === product) !== undefined
+      this.selectedProducts.find((p: CartProduct) => p === product) !==
+      undefined
     );
   }
 }
