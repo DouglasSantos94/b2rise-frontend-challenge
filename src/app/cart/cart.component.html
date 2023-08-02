@@ -13,7 +13,13 @@
             {{ product.price | currency : "BRL" }} / 1 {{ "un".toUpperCase() }}
           </h2>
           <div class="w-full h-8">
-            <button class="text-red ml-5" type="button">Excluir</button>
+            <button
+              class="text-red ml-5"
+              type="button"
+              (click)="deleteProduct(product)"
+            >
+              Excluir
+            </button>
           </div>
           <p class="text-[14px] mb-3">{{ product.longDescription }}</p>
         </div>

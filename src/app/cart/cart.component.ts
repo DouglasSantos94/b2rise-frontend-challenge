@@ -29,4 +29,15 @@ export class CartComponent {
     product.count = product.count > 1 ? product.count - 1 : 1;
     this.totalPrice -= product.price;
   }
+
+  deleteProduct(productToDelete: CartProduct) {
+    this.products = this.products.filter(
+      (product: CartProduct) => product.id !== productToDelete.id
+    );
+
+    this.totalPrice =
+      this.totalPrice - productToDelete.price * productToDelete.count;
+
+    this.cartService.deleteProduct(productToDelete);
+  }
 }

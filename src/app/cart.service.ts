@@ -46,4 +46,10 @@ export class CartService {
     this.products = [];
     return this.products;
   }
+
+  deleteProduct(productToDelete: CartProduct) {
+    this.products = this.products.filter(
+      (product: CartProduct) => product.id !== productToDelete.id
+    );
+  }
 }
