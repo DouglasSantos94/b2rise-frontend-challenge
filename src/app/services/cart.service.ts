@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CartProduct, Product } from '../product';
 
-const cartStorageKey = 'Cart';
+const cartStorageKey = 'Orders';
 const defaultProducts: CartProduct[] = [];
 
 @Injectable({

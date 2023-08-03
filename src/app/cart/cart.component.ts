@@ -5,6 +5,7 @@ import { CartService } from '../services/cart.service';
 import { CartProduct } from '../product';
 import { StorageService } from '../services/storage.service';
 import { Router, RouterModule } from '@angular/router';
+import { Order } from '../order';
 
 @Component({
   selector: 'app-cart',
@@ -48,7 +49,18 @@ export class CartComponent {
   }
 
   finishPurchase() {
-    this.storageService.setData('Cart', this.products);
+    const order: Order = {
+      id: this.generateRandomId(),
+      products: this.products,
+      amount: this.totalPrice,
+    };
+    this.storageService.set(order);
     this.router.navigate(['/history']);
   }
+
+  generateRandomId = function (length = 6) {
+    return Math.random()
+      .toString(36)
+      .substring(2, length + 2);
+  };
 }

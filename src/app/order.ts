@@ -1,7 +1,7 @@
 import { CartProduct } from './product';
 
 export type Order = {
-  id: number;
-  totalPrice: number;
+  id: string;
+  amount: number;
   products: CartProduct[];
 };
