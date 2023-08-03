@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
 import { Router, RouterModule } from '@angular/router';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -13,6 +14,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class TopBarComponent {
   productService: ProductService = inject(ProductService);
+  cartService: CartService = inject(CartService);
   constructor(private router: Router) {}
 
   filterResults(text: string) {
