@@ -1,7 +1,7 @@
 import { Component, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopBarComponent } from '../top-bar/top-bar.component';
-import { CartService } from '../cart.service';
+import { CartService } from '../services/cart.service';
 import { CartProduct } from '../product';
 
 @Component({
