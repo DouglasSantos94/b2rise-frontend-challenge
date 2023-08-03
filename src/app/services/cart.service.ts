@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { CartProduct, Product } from '../product';
-import { StorageService } from './storage.service';
 
 const cartStorageKey = 'Cart';
 const defaultProducts: CartProduct[] = [];
@@ -11,13 +10,10 @@ const defaultProducts: CartProduct[] = [];
 export class CartService {
   products: CartProduct[] = [];
 
-  constructor(private storageService: StorageService) {
-    this.products = storageService.getData(cartStorageKey) || defaultProducts;
-  }
+  constructor() {}
 
   addToCart(products: CartProduct[]) {
     this.products.push(...products);
-    this.storageService.setData(cartStorageKey, this.products);
   }
 
   getProducts() {
