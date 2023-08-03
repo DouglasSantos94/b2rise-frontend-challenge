@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { CartProduct, Product } from '../product';
 import { StorageService } from './storage.service';
 
-@Injectable({
-  providedIn: 'root',
-})
-
 const cartStorageKey = 'Cart';
 const defaultProducts: CartProduct[] = [];
 
+@Injectable({
+  providedIn: 'root',
+})
 export class CartService {
   products: CartProduct[] = [];
 
