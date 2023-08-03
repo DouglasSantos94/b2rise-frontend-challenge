@@ -16,17 +16,23 @@
       <img class="w-10 p-0 m-0 rounded-10" src="../../assets/search.png" />
     </button>
   </div>
-  <a class="w-[100px] h-[75px] flex align-top justify-start" routerLink="/cart">
-    <img src="../../assets/cart-without-products.png" />
-    <img
-      *ngIf="this.cartService.products.length > 0"
-      class="w-[25px] h-[25px] -ml-12 z-20"
-      src="../../assets/cart-count.png"
-    />
-    <span
-      *ngIf="this.cartService.products.length > 0"
-      class="text-white font-bold z-30 -ml-4"
-      >{{ this.cartService.products.length }}</span
+  <div class="w[300px] h-full flex items-center">
+    <a
+      class="w-[100px] h-[75px] flex align-top justify-start"
+      routerLink="/cart"
     >
-  </a>
+      <img src="../../assets/cart-without-products.png" />
+      <img
+        *ngIf="this.cartService.products.length > 0"
+        class="w-[25px] h-[25px] -ml-12 z-20"
+        src="../../assets/cart-count.png"
+      />
+      <span
+        *ngIf="this.cartService.products.length > 0"
+        class="text-white font-bold z-30 -ml-4"
+        >{{ this.cartService.products.length }}</span
+      >
+    </a>
+    <a routerLink="/history"><img src="../../assets/history.png" /></a>
+  </div>
 </header>
