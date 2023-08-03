@@ -31,6 +31,7 @@
               class="w-8 h-9 bg-transparent text-4xl text-red"
               type="button"
               (click)="decrease(product)"
+              [disabled]="product.count === 1"
             >
               -
             </button>
@@ -39,6 +40,7 @@
               type="number"
               min="1"
               [value]="product.count"
+              readonly
             />
             <button
               class="w-8 h-9 bg-transparent text-2xl text-green"
