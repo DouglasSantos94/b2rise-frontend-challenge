@@ -18,6 +18,5 @@ export class OrdersComponent {
 
   ngOnInit() {
     this.orders = this.storageService.get('Orders');
-    console.log(this.orders);
   }
 }

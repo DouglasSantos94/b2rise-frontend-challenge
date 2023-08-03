@@ -1,4 +1,4 @@
-import { Component, SimpleChanges } from '@angular/core';
+import { Component, SimpleChanges, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TopBarComponent } from '../top-bar/top-bar.component';
 import { CartService } from '../services/cart.service';
@@ -15,12 +15,10 @@ import { Order } from '../order';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-  products = this.cartService.getProducts();
-  constructor(
-    private cartService: CartService,
-    private storageService: StorageService,
-    private router: Router
-  ) {}
+  products: CartProduct[] = this.cartService.getProducts();
+  storageService: StorageService = inject(StorageService);
+
+  constructor(private cartService: CartService, private router: Router) {}
 
   totalPrice = this.products.reduce(
     (acc, product: CartProduct) => acc + product.price * product.count,

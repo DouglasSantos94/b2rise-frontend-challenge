@@ -5,15 +5,12 @@ import { Order } from '../order';
   providedIn: 'root',
 })
 export class StorageService {
-  private storage: Storage;
-  constructor() {
-    this.storage = window.localStorage;
-  }
+  constructor() {}
 
   set(data: Order) {
     let orders = this.get('Orders');
-    if (this.storage) {
-      this.storage.setItem('Orders', JSON.stringify([orders, data]));
+    if (orders) {
+      localStorage.setItem('Orders', JSON.stringify([...orders, { ...data }]));
       return true;
     }
 
@@ -21,9 +18,6 @@ export class StorageService {
   }
 
   get(key: string): any {
-    if (this.storage) {
-      return JSON.parse(this.storage.getItem(key) || '[]');
-    }
-    return null;
+    return JSON.parse(localStorage.getItem(key) || '[]');
   }
 }
