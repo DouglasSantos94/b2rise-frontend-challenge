@@ -1,7 +1,7 @@
 <app-top-bar></app-top-bar>
 <section class="w-full m-auto pt-5" *ngIf="products.length > 0">
   <h2 class="w-[1500px] m-auto text-[47px] text-left">Carrinho</h2>
-  <ul class="w-[1400px] m-auto flex flex-col">
+  <ul class="w-[1500px] m-auto flex flex-col">
     <li
       class="w-full h-60 px-5 flex justify-between items-center border-b-1 border-gray"
       *ngFor="let product of products"
@@ -71,7 +71,9 @@
     </button>
   </div>
 </section>
-<section *ngIf="products.length === 0">
-  <h2>O carrinho está vazio!</h2>
-  <img src="../../assets/empty-cart.png" />
+<section class="w-full mt-20 pt-5" *ngIf="products.length === 0">
+  <h2 class="w-full mx-auto text-[47px] text-center">O carrinho está vazio!</h2>
+  <div class="w-full mx-auto mt-15">
+    <img class="mx-auto mt-9" src="../../assets/empty-cart.png" />
+  </div>
 </section>
