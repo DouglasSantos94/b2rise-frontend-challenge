@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StorageService } from '../services/storage.service';
+import { TopBarComponent } from '../top-bar/top-bar.component';
 
 @Component({
   selector: 'app-history',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TopBarComponent],
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.css'],
 })
